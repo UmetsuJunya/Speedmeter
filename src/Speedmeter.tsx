@@ -10,7 +10,7 @@ const Speedmeter: React.FC = () => {
   const frameCount = 100;
   const frameInterval = 50;
   const digitValueMax = 160;
-  const statValueMax = 87.3;
+  const statValueMax = 90.0;
   const statValueInterval = statValueMax / frameCount;
 
   useEffect(() => {
@@ -53,9 +53,9 @@ const Speedmeter: React.FC = () => {
     if (step > statValueMax) {
       return;
     }
+    step += statValueInterval
     setStatValue(step);
     setStatValueCurrent(step);
-    step += statValueInterval
     setTimeout(() => {updateDetails(step)}, frameInterval);
   }
 
